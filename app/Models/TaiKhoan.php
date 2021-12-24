@@ -10,7 +10,7 @@ class TaiKhoan extends Model
     protected $table = "taikhoan";
     protected $primaryKey = "ID";
     protected $casts = ['TRANGTHAI' => 'boolean', 'GIOITINH' => 'boolean'];
-    
+    protected $fillable = ['HOTEN', 'NGAYSINH', 'GIOITINH', 'SODIENTHOAI', 'TRANGTHAI', 'EMAIL', 'TOKEN', 'MATKHAU', 'LOAITK'];
 
     public function rLoaiTK()
     {
@@ -23,5 +23,10 @@ class TaiKhoan extends Model
     public function rCTLopHoc()
     {
         return $this->hasMany('App\Models\CTLopHoc', 'ID');
+    }
+
+    public function rBaiThi()
+    {
+        return $this->hasMany('App\Models\BaiThi', 'ID');
     }
 }
